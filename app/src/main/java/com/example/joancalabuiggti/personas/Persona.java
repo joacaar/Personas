@@ -9,12 +9,13 @@ public class Persona {
     private int dni;
     private String genero;
     private String nacionalidad;
-    private ArrayList <Telefono> telefonos = new ArrayList();
+    private ArrayList <Telefono> telefonos;
 
     public Persona(int dni, String nombre, String apellido){
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.telefonos = new ArrayList();
     }
 
     public void anyadir(Telefono telf){
@@ -26,6 +27,37 @@ public class Persona {
             System.out.println(this.telefonos.get(i).getNumero());
         }
     }
+
+    public void quitar (int numero, String descripcion){
+
+        for(int i = 0; i< this.telefonos.size(); i++){
+            if(this.telefonos.get(i).getNumero() == numero){
+                for(int j = 0; j< this.telefonos.size(); j++){
+                    if(this.telefonos.get(j).getDescripcion() == descripcion){
+                        if(i == j) {
+                            this.telefonos.remove(i);
+                        }
+                    }
+                }
+//                this.telefonos.remove(i);
+            }
+        }
+    }
+
+    public void mostrarInformacion (){
+
+        String texto = "\nNombre: " + this.nombre + ", Apellido: " + this.apellido + ", DNI: " + this.dni;
+
+
+        for (int i = 0; i < this.telefonos.size(); i++){
+            texto = texto + "\n\t -- Descipcion del Telefono: '" + this.telefonos.get(i).getDescripcion() +
+                    "' con Numero: " + this.telefonos.get(i).getNumero();
+        }
+
+        System.out.println(texto);
+    }
+
+
 
 //    Metodos Getters y Setters
 

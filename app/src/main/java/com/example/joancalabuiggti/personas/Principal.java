@@ -35,6 +35,9 @@ public class Principal {
 
 //      -- Hace que se muestren por pantalla los telefonos de la Perona -p-
         p.mostrarTelefonos();
+        p.mostrarInformacion();
+        p.quitar(456789132, "Movil");
+        p.mostrarInformacion();
     }
 
 //  -- Funcion estatica que busca a una persona dentro de un array de tipo Persona
